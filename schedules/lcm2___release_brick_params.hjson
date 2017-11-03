@@ -1,0 +1,46 @@
+{
+  "app_id": "{{APPSTORE_RELEASE_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "LCM - Release Brick",
+  "schedules": [
+    {
+      "name": "Release reseller_r2",
+      "executable": "main.rb",
+      "params": {
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "{{release_brick_dev_client}}": null,
+        "tokens": {
+          "pg": "{{token_pg}}"
+        },
+        "technical_user": [
+          "{{organization_login}}",
+          "{{technical_login}}"
+        ],
+        "ads_client": {
+          "username": "{{technical_login}}",
+          "password": "${ads_password}",
+          "jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+        },
+        "additional_params": {
+          "WL_URL": "{{wl_hostname}}",
+          "ADS_LOGIN": "{{technical_login}}",
+          "ADS_INSTANCE_ID": "{{ads_instance}}"
+        },
+        "additional_hidden_params": {
+          "ADS_PASSWORD": "{{technical_password}}"
+        },
+        "{{release_brick_segments}}": null
+      },
+      "hidden_params": {
+        "ads_password": "{{technical_password}}",
+        "GDC_PASSWORD": "{{organization_password}}",
+        "development_client_password": "{{organization_password}}",
+        "additional_hidden_params|ADS_PASSWORD": "{{technical_password}}"
+      }
+    }
+  ]
+}

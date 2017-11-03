@@ -1,0 +1,25 @@
+{
+  "app_id": "{{APPSTORE_ADS_INTEGRATOR_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "ADS Integrator",
+  "schedules": [
+    {
+      "name": "ADS Integrator",
+      "executable": "main.rb",
+      "params": {
+        "bds_folder": "{{s3_folder}}",
+        "bds_bucket": "{{s3_bucket}}",
+        "account_id": "connector",
+        "bds_access_key": "{{s3_access_key}}",
+        "ID": "ads_integrator",
+        "token": "{{s3_token}}"
+      },
+      "hidden_params": {
+        "bds_secret_key": "{{s3_secret_key}}",
+        "ads_storage|password": "{{technical_password}}",
+        "ads_storage|options|remote|secret_key": "{{s3_secret_key}}"
+      }
+    }
+  ]
+}

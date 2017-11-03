@@ -1,0 +1,18 @@
+{
+  "dir": "local_processes_code/SimpleCustomCC",
+  "deployment_type": "local",
+  "process_type": "graph",
+  "name": "SimpleCustomCC",
+  "schedules": [
+    {
+      "name": "SimpleCustomCC",
+      "executable": "graph/test.grf",
+      "params": {
+		  "TEST_PARAM": "{{technical_login}}"
+      },
+      "hidden_params": {
+        "TEST_HIDDEN_PARAM": "{{technical_login}}"
+      }
+    }
+  ]
+}

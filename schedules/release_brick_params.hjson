@@ -1,0 +1,37 @@
+{
+  "app_id": "{{APPSTORE_RELEASE_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "Release Brick",
+  "schedules": [
+    {
+      "name": "Release Brick Schedule",
+      "executable": "main.rb",
+      "reschedule": 30,
+      "params": {
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "technical_user": [
+          "{{technical_login}}"
+        ],
+        "{{release_brick_segments}}": null,
+        "{{release_brick_tokens}}": null,
+        "additional_params": {
+        }
+      },
+      "hidden_params": {
+  		"GDC_PASSWORD": "{{organization_password}}",
+  		"ads_client": {
+  			"username": "{{technical_login}}",
+  			"password": "{{technical_password}}",
+  			"jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+  		},
+  		"release_brick_dev_client": "{{release_brick_dev_client}}",
+  		"additional_hidden_params": {
+  		}
+      }
+    }
+  ]
+}

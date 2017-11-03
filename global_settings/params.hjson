@@ -1,0 +1,17 @@
+{
+	"DATA_PRODUCT": "",
+	"RELEASE": "",
+	"APPSTORE_ADS_INTEGRATOR_BRICK": "${SERVICES_APPSTORE}:tag/ads_integrator_brick-v1.0.1:/ads_integrator_brick",
+	"APPSTORE_CSV_CONNECTOR_BRICK": "${SERVICES_APPSTORE}:tag/csv_downloader_brick-v1.0.6:/csv_downloader_brick",
+	"APPSTORE_PROVISIONING_BRICK": "${PUBLIC_APPSTORE}:tag/provisioning_brick-1.0.5:/apps/provisioning_brick",
+	"APPSTORE_ROLL_OUT_BRICK": "${PUBLIC_APPSTORE}:tag/2.0.3:/apps/rollout_brick",
+	"APPSTORE_RELEASE_BRICK": "${PUBLIC_APPSTORE}:tag/2.0.3:/apps/release_brick",
+	"APPSTORE_USER_BRICK": "${PUBLIC_APPSTORE}:tag/2.0.3:/apps/users_brick",
+	"APPSTORE_USER_FILTER_BRICK": "${PUBLIC_APPSTORE}:tag/2.0.3:/apps/user_filters_brick",
+	"APPSTORE_SQL_EXECUTOR_BRICK": "${SERVICES_APPSTORE}:tag/sql_executor_brick-v1.0.2:/sql_executor_brick",
+	"APPSTORE_SCHEDULE_EXECUTOR_BRICK": "${SERVICES_APPSTORE}:tag/schedule_execution_brick-1.0.1:/apps/schedule_execution_brick",
+	
+	"PROVISIONING_BRICK_SELECT": "",
+	"USER_BRICK_SELECT": "",
+	"MODES_FOR_EXECUTION_BRICK": ""
+}

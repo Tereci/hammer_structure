@@ -1,0 +1,16 @@
+{
+  "dir": "local_processes_code/SampleCustomRubyProcess",
+  "deployment_type": "local",
+  "process_type": "ruby",
+  "name": "sample_custom_ruby_process",
+  "schedules": [
+    {
+      "name": "sample_custom_ruby_process",
+      "executable": "main.rb",
+      "params": {
+      },
+      "hidden_params": {
+      }
+    }
+  ]
+}

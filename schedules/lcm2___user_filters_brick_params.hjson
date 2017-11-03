@@ -1,0 +1,52 @@
+{
+  "app_id": "{{APPSTORE_USER_FILTER_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "LCM - User Filters Brick",
+  "schedules": [
+    {
+      "name": "Client Workspaces User Filters Brick",
+      "executable": "main.rb",
+      "params": {
+        "sync_mode": "sync_domain_client_workspaces",
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "whitelists": [
+          "{{organization_login}}",
+          "{{technical_login}}"
+        ],
+        "segments_filter": [
+          "{{segment_filter}}"
+        ],
+        "input_source": {
+          "type": "ads",
+          "query": "{{USER_FILTER_BRICK_SELECT}}"
+        },
+        "ads_client": {
+          "username": "{{technical_login}}",
+          "password": "{{technical_password}}",
+          "jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+        },
+        "filters_config": {
+          "user_column": "login",
+          "labels": [
+            {
+              "label": "label.acquirer.acquirerica",
+              "column": "acquirer_id"
+            },
+            {
+              "label": "label.merchant.merchantid.merchantsrcid",
+              "column": "merchant_id"
+            }
+          ]
+        }
+      },
+      "hidden_params": {
+        "ads_client_password": "{{technical_password}}",
+        "GDC_PASSWORD": "{{organization_password}}"
+      }
+    }
+  ]
+}

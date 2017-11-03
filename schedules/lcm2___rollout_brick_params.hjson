@@ -1,0 +1,39 @@
+{
+  "app_id": "{{APPSTORE_ROLL_OUT_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "LCM - Rollout Brick",
+  "schedules": [
+    {
+      "name": "Rollout reseller_r2",
+      "executable": "main.rb",
+      "params": {
+        "EXECUTION_TRIGGER": "Rollout",
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "technical_user": [
+          "{{organization_login}}",
+          "{{technical_login}}"
+        ],
+        "update_preference": {
+          "cascade_drops": "false",
+          "preserve_data": "true"
+        },
+        "ads_client": {
+          "username": "{{technical_login}}",
+          "password": "${ads_password}",
+          "jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+        },
+        "segments_filter": [
+          "{{segment_name}}"
+        ]
+      },
+      "hidden_params": {
+        "ads_password": "{{technical_password}}",
+        "GDC_PASSWORD": "{{organization_password}}"
+      }
+    }
+  ]
+}

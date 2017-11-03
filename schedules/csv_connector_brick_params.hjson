@@ -1,0 +1,24 @@
+{
+  "app_id": "{{APPSTORE_CSV_CONNECTOR_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "CSV Connector",
+  "schedules": [
+    {
+      "name": "CSV Connector",
+      "executable": "main.rb",
+      "params": {
+        "bds_access_key": "{{s3_access_key}}",
+        "token": "{{s3_token}}",
+        "bds_folder": "{{s3_folder}}",
+        "bds_bucket": "{{s3_bucket}}",
+        "account_id": "connector",
+        "ID": "csv_downloader"
+      },
+      "hidden_params": {
+        "csv|options|secret_key": "{{s3_secret_key}}",
+        "bds_secret_key": "{{s3_secret_key}}"
+      }
+    }
+  ]
+}

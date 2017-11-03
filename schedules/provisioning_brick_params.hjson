@@ -1,0 +1,50 @@
+{
+  "app_id": "{{APPSTORE_PROVISIONING_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "Provisioning Brick",
+  "schedules": [
+    {
+      "name": "Provisioning Brick Schedule",
+      "executable": "main.rb",
+      "params": {
+        "delete_extra": "false",
+        "delete_projects": "false",
+        "organization": "{{organization_name}}",
+        "technical_user": [
+          "{{technical_login}}"
+        ],
+        "input_source": {
+          "type": "ads",
+          "query": "{{PROVISIONING_BRICK_SELECT}}"
+        },
+        "additional_params": {
+  		  "GDC_USERNAME": "{{organization_login}}",
+          "CLIENT_GDC_HOSTNAME":"{{wl_hostname}}",
+          "CLIENT_GDC_PROTOCOL":"https"
+        },
+        "SEGMENTS_FILTER": "{{segment_filter}}"
+      },
+      "hidden_params": {
+  		"additional_hidden_params": {
+		    "GDC_PASSWORD":"{{organization_password}}",
+	  		"ads_client": {
+	  			"username": "{{technical_login}}",
+	  			"password": "{{technical_password}}",
+	  			"jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+	  		}
+  		},
+  		"user_for_deployment": {
+  			"login": "{{technical_login}}",
+  			"password": "{{technical_password}}",
+  			"server": "https://{{wl_hostname}}"
+  		},
+  		"ads_client": {
+  			"username": "{{technical_login}}",
+  			"password": "{{technical_password}}",
+  			"jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+  		}
+      }
+    }
+  ]
+}

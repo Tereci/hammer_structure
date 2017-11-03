@@ -1,0 +1,35 @@
+{  
+   "app_id":"{{APPSTORE_USER_BRICK}}",
+   "deployment_type":"git",
+   "process_type":"ruby",
+   "name":"User brick",
+   "schedules":[  
+      {  
+         "name":"add_users_to_domain",
+         "executable":"main.rb",
+         "params":{  
+            "sync_mode":"add_to_organization",
+            "CLIENT_GDC_HOSTNAME":"{{wl_hostname}}",
+            "domain":"{{organization_name}}",
+            "GDC_USERNAME":"{{organization_login}}",
+            "CLIENT_GDC_PROTOCOL":"https",
+            "input_source":{  
+               "type":"ads",
+               "query":"{{USER_BRICK_SELECT}}"
+            },
+            "whitelists":[  
+               "{{organization_login}}",
+               "{{technical_login}}"
+            ]
+         },
+         "hidden_params":{  
+            "GDC_PASSWORD":"{{organization_password}}",
+            "ads_client":{  
+               "username":"{{technical_login}}",
+               "password":"{{technical_password}}",
+               "ads_id":"{{ads_instance}}"
+            }
+         }
+      }
+   ]
+}

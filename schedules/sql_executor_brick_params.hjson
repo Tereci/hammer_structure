@@ -1,0 +1,24 @@
+{
+  "app_id": "{{APPSTORE_SQL_EXECUTOR_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "SQL Executor",
+  "schedules": [
+    {
+      "name": "SQL executor brick",
+      "executable": "main.rb",
+      "params": {
+        "folder": "s3://{{s3_bucket}}/{{s3_folder}}",
+        "ads_instance_id": "{{ads_instance}}",
+		"ads_username": "{{technical_login}}",
+		"ads_server": "{{wl_hostname}}",
+		"access_key": "{{s3_access_key}}",
+		"number_of_threads": "4"
+      },
+      "hidden_params": {
+        "secret_key": "{{s3_secret_key}}",
+		"ads_password": "{{technical_password}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+	"s3_access_key": "",
+	"s3_secret_key": "{{secret|resourcename_in_passman1|accoutname_in_passman1}}",
+	"s3_folder": "",
+	"s3_token": "",
+	"s3_bucket": "",
+	
+	"technical_login": "",
+	"technical_password": "{{secret|resourcename_in_passman2|accoutname_in_passman2}}",
+	"ads_instance": "rrr",
+	
+	"organization_name": "",
+	"organization_login": "",
+	"organization_password": "{{secret|resourcename_in_passman3|accoutname_in_passman3}}",
+	"wl_hostname": "xx",
+	
+	"release_from_login": "",
+	"release_from_password": "{{secret|resourcename_in_passman4|accoutname_in_passman4}}",
+	"release_from_wl_hostname": "",
+	"release_from_project_id": "",
+	
+	"token_pg": "",
+	"token_vertica": ""
+}

@@ -1,0 +1,11 @@
+{
+  "project_id": "",
+  "project_title_mask": "{{DATA_PRODUCT}} {{RELEASE}} {{environment}} (SERVICE PROJECT)",
+  "create_under_token": "{{token_pg}}",
+  "create_under_login": "{{organization_login}}",
+  "create_under_password": "{{organization_password}}",
+  "create_under_hostname": "{{wl_hostname}}",
+  "create_under_organization": "{{organization_name}}",
+  "deploy_under_login": "{{technical_login}}",
+  "deploy_under_password": "{{technical_password}}"
+}

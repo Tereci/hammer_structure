@@ -1,0 +1,49 @@
+{
+	"schedules": [
+		{
+			"name": "CSV Connector",
+			"when": "0 15 * * *",
+			"state": "ENABLED"
+		},
+		{
+			"name": "ADS Integrator",
+			"after": "CSV Connector",
+			"state": "ENABLED"
+		},		
+		{
+			"name": "SimpleCustomCC",
+			"after": "ADS Integrator",
+			"state": "ENABLED"
+		},
+		{
+			"name": "sample_custom_ruby_process",
+			"after": "SimpleCustomCC",
+			"state": "ENABLED"
+		},
+		{
+			"name": "add_users_to_domain",
+			"after": "sample_custom_ruby_process",
+			"state": "ENABLED"
+		},
+		{
+			"name": "Provisioning Brick Schedule",
+			"after": "add_users_to_domain",
+			"state": "ENABLED"
+		},
+		{
+			"name": "Execute Data Loads",
+			"after": "Provisioning Brick Schedule",
+			"state": "ENABLED"
+		},
+		{
+			"name": "Release Brick Schedule",
+			"when": "0 15 * * 0",
+			"state": "DISABLED"
+		},
+		{
+			"name": "Rollout Brick Schedule",
+			"when": "0 15 * * *",
+			"state": "DISABLED"
+		}
+	]
+}

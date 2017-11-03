@@ -1,0 +1,41 @@
+{
+  "app_id": "{{APPSTORE_PROVISIONING_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "LCM - Provisioning Brick",
+  "schedules": [
+    {
+      "name": "Provision reseller_r2",
+      "executable": "main.rb",
+      "params": {
+        "delete_extra": "false",
+        "delete_projects": "false",
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "technical_user": [
+          "{{organization_login}}",
+          "{{technical_login}}"
+        ],
+        "ads_client": {
+         "username": "{{technical_login}}",
+          "password": "${ads_password}",
+          "jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+        },
+		// and this is my random comment
+        "input_source": {
+          "type": "ads",
+          "query": "{{PROVISIONING_BRICK_SELECT}}"
+        },
+        "segments_filter": [
+          "{{segment_name}}"
+        ]
+      },
+      "hidden_params": {
+        "ads_password": "{{technical_password}}",
+        "GDC_PASSWORD": "{{organization_password}}"
+      }
+    }
+  ]
+}

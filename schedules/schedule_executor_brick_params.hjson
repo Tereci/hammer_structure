@@ -1,0 +1,22 @@
+{
+  "app_id": "{{APPSTORE_SCHEDULE_EXECUTOR_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "Schedule executor",
+  "schedules": [
+    {
+      "name": "Execute Data Loads",
+      "executable": "main.rb",
+      "params": {
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "WORK_DONE_IDENTIFIER": "IGNORE",
+        "LIST_OF_MODES": "{{MODES_FOR_EXECUTION_BRICK}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_PROTOCOL": "https"
+      },
+      "hidden_params": {
+        "GDC_PASSWORD": "{{organization_password}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+	"s3_access_key": "",
+	"s3_secret_key": "{{secret|resourcename_in_passman1|accoutname_in_passman1}}",
+	"s3_folder": "",
+	"s3_token": "",
+	"s3_bucket": "",
+	
+	"technical_login": "",
+	"technical_password": "{{secret|resourcename_in_passman2|accoutname_in_passman2}}",
+	"ads_instance": "",
+	
+	"organization_name": "",
+	"organization_login": "",
+	"organization_password": "{{secret|resourcename_in_passman3|accoutname_in_passman3}}",
+	"wl_hostname": "",
+	
+	"token_pg": "",
+	"token_vertica": ""
+}

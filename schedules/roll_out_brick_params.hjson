@@ -1,0 +1,43 @@
+{
+  "app_id": "{{APPSTORE_ROLL_OUT_BRICK}}",
+  "deployment_type": "git",
+  "process_type": "ruby",
+  "name": "Rollout Brick",
+  "schedules": [
+    {
+      "name": "Rollout Brick Schedule",
+      "executable": "main.rb",
+      "params": {
+        "CLIENT_GDC_HOSTNAME": "{{wl_hostname}}",
+        "organization": "{{organization_name}}",
+        "GDC_USERNAME": "{{organization_login}}",
+        "CLIENT_GDC_PROTOCOL": "https",
+        "technical_user": [
+          "{{technical_login}}"
+        ],
+        "SEGMENTS_FILTER": "{{segment_filter}}",
+        "additional_params": {
+			"GDC_USERNAME": "{{organization_login}}",
+            "CLIENT_GDC_HOSTNAME":"{{wl_hostname}}",
+            "CLIENT_GDC_PROTOCOL":"https"
+        }
+      },
+      "hidden_params": {
+  		"GDC_PASSWORD": "{{organization_password}}",
+  		"ads_client": {
+  			"username": "{{technical_login}}",
+  			"password": "{{technical_password}}",
+  			"jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+  		},
+  		"additional_hidden_params": {
+		    "GDC_PASSWORD":"{{organization_password}}",
+	  		"ads_client": {
+	  			"username": "{{technical_login}}",
+	  			"password": "{{technical_password}}",
+	  			"jdbc_url": "jdbc:gdc:datawarehouse://{{wl_hostname}}/gdc/datawarehouse/instances/{{ads_instance}}"
+	  		}
+  		}
+      }
+    }
+  ]
+}
